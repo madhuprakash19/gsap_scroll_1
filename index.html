@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Down</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+        }
+
+        body {
+            overflow-x: hidden;
+
+        }
+
+        section {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        section h2 {
+            font-size: 6em;
+            color: #fff;
+            font-weight: 500;
+        }
+
+        .box1 {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            padding-left: 150px;
+            padding-top: 15px;
+            background-image: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+        }
+
+        .box1 h2 {
+            font-size: 3em;
+        }
+
+        #me {
+            max-width: 500px;
+        }
+
+        .box2 {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            padding: 150px;
+            background: #000;
+        }
+
+        .box2 h2 {
+            font-size: 3em;
+            color: #fff;
+        }
+
+        .bye {
+            font-size: 6em;
+            color: rgb(32, 29, 29);
+            font-weight: 500;
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.15) 0%, rgba(0, 0, 0, 0.15) 100%), radial-gradient(at top center, rgba(255, 255, 255, 0.40) 0%, rgba(0, 0, 0, 0.40) 120%) #989898;
+            background-blend-mode: multiply, multiply;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <h2>Scroll Down if you like me
+            😂</h2>
+    </section>
+
+    <div class="box1">
+        <h2 class="text1">So you like me......Cool!!!</h2>
+        <h2 class="text2">I like you too</h2>
+        <h2 class="text3">Thanks for visiting this page.....btw this is me</h2>
+        <img src="me.jpg" alt="You can,t see me...there is some issue" id="me">
+    </div>
+
+    <div class="box2">
+        <h2 class="text4">Animation was cool right....!!</h2>
+        <br><br>
+        <h2 class="text5">Thanks to Greensock for making this easy</h2>
+        <br><br>
+        <h2 class="text6">I simply tried this.....will try to do more cool than this</h2>
+    </div>
+    <div class="bye">
+        <h2>See yaa</h2>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>
+    <script>
+        gsap.timeline({
+            scrollTrigger: {
+                trigger: ".box1",
+                start: "center center",
+                end: "bottom top",
+                markers: false,
+                scrub: true,
+                pin: true
+            }
+        })
+            .from(".text1", { x: innerWidth * 1 })
+            .from(".text2", { x: innerWidth * -1 })
+            .from(".text3", { x: innerWidth * 1 })
+            .from("#me", {
+                y: innerHeight * 1,
+                opacity: 0
+            })
+        gsap.timeline({
+            scrollTrigger: {
+                trigger: ".box2",
+                start: "center center",
+                end: "bottom top",
+                markers: false,
+                scrub: true,
+                pin: true
+            }
+        })
+            .from(".box2", { opacity: 0 })
+            .from(".text4", { y: innerHeight * 1 })
+            .from(".text5", { y: innerHeight * 1 })
+            .from(".text6", { y: innerHeight * 1 })
+        gsap.timeline({
+            scrollTrigger: {
+                trigger: ".bye",
+                start: "center center",
+                end: "bottom top",
+                markers: false,
+                scrub: true,
+                pin: true
+            }
+
+        })
+            .from(".bye", { opacity: 0 })
+    </script>
+
+</body>
+
+</html>
